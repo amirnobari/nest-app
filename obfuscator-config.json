@@ -1,0 +1,34 @@
+{
+    "sourceFolder": "./src",
+    "outputFolder": "./dist",
+    "format": "normal",
+    "plugins": [
+      {
+        "name": "uglify-js"
+      }
+    ],
+    "options": {
+      "stringArrayEncoding": "rc4",
+      "compact": true,
+      "stringArray": true,
+      "controlFlowFlattening": true,
+      "controlFlowFlatteningThreshold": 1,
+      "deadCodeInjection": true,
+      "deadCodeInjectionThreshold": 2,
+      "debugProtection": true,
+      "debugProtectionInterval": true,
+      "disableConsoleOutput": true,
+      "rotateStringArray": true,
+      "selfDefending": true,
+      "shuffleStringArray": true,
+      "splitStringsChunkLength": 10,
+      "splitStrings": true,
+      "identifierNamesGenerator": "hexadecimal",
+      "stringArrayThreshold": 2,
+      "target": "browser",
+      "unicodeEscapeSequence": true,
+      "renameGlobals": true,
+      "renameProperties": true,
+      "renameFunctions": true
+    }
+  }
