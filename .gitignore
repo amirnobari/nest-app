@@ -3,7 +3,7 @@
 /node_modules
 *.js.map
 *.d.ts
-
+docker/volumes
 # Logs
 logs
 *.log
