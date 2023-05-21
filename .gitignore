@@ -1,5 +1,5 @@
 # compiled output
-/src
+
 /node_modules
 *.js.map
 *.d.ts
