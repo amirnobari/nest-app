@@ -18,18 +18,28 @@ const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const details_time_price_license_schema_1 = require("../../database/mongoose/details-time-price-license.schema");
 const product_schema_1 = require("../../database/mongoose/products/product.schema");
+const license_schema_1 = require("../../database/mongoose/license/license.schema");
 let ProductService = class ProductService {
-    constructor(productModel, detailsTimePriceLicenseModel) {
+    constructor(productModel, detailsTimePriceLicenseModel, licenseModel) {
         this.productModel = productModel;
         this.detailsTimePriceLicenseModel = detailsTimePriceLicenseModel;
+        this.licenseModel = licenseModel;
     }
     async createProduct(createProductDto) {
+        const license = await this.licenseModel.findOne({ _id: createProductDto.licenseId });
+        if (!license) {
+            throw new Error('licenseid is invalid');
+        }
+        const detailsTimePriceLicense = await this.detailsTimePriceLicenseModel.findOne({ _id: createProductDto.detailsTimePriceLicenseId });
+        if (!detailsTimePriceLicense) {
+            throw new Error('detailsTimePriceLicenseId is invalid');
+        }
         const product = new this.productModel({
             name: createProductDto.name,
             status: createProductDto.status,
             category: createProductDto.category,
-            license: createProductDto.licenseId,
-            detailstimepricelicense: createProductDto.detailsTimePriceLicenseId,
+            license,
+            detailsTimePriceLicense,
         });
         return await product.save();
     }
@@ -45,7 +55,9 @@ ProductService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)(product_schema_1.Product.name)),
     __param(1, (0, mongoose_1.InjectModel)(details_time_price_license_schema_1.DetailsTimePriceLicense.name)),
+    __param(2, (0, mongoose_1.InjectModel)(license_schema_1.License.name)),
     __metadata("design:paramtypes", [mongoose_2.Model,
+        mongoose_2.Model,
         mongoose_2.Model])
 ], ProductService);
 exports.ProductService = ProductService;

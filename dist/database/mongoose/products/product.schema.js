@@ -32,7 +32,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: license_schema_1.License }),
     __metadata("design:type", license_schema_1.License)
-], Product.prototype, "licenseId", void 0);
+], Product.prototype, "license", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: details_time_price_license_schema_1.DetailsTimePriceLicense }),
     __metadata("design:type", details_time_price_license_schema_1.DetailsTimePriceLicense)

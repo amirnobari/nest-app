@@ -13,6 +13,7 @@ const details_time_price_license_schema_1 = require("../../database/mongoose/det
 const product_schema_1 = require("../../database/mongoose/products/product.schema");
 const product_controller_1 = require("./product.controller");
 const product_service_1 = require("./product.service");
+const license_schema_1 = require("../../database/mongoose/license/license.schema");
 let ProductModule = class ProductModule {
 };
 ProductModule = __decorate([
@@ -23,6 +24,10 @@ ProductModule = __decorate([
                 {
                     name: details_time_price_license_schema_1.DetailsTimePriceLicense.name,
                     schema: details_time_price_license_schema_1.DetailsTimePriceLicenseSchema,
+                },
+                {
+                    name: license_schema_1.License.name,
+                    schema: license_schema_1.LicenseSchema,
                 },
             ]),
         ],
