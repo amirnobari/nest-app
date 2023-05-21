@@ -1,1 +1,42 @@
-'use strict';const a1_0x45efc0=a1_0x185a;function a1_0x185a(_0x418041,_0x223c66){const _0x4f8027=a1_0x4f80();return a1_0x185a=function(_0x185a04,_0x36d832){_0x185a04=_0x185a04-0x102;let _0x5228ad=_0x4f8027[_0x185a04];return _0x5228ad;},a1_0x185a(_0x418041,_0x223c66);}(function(_0x34f36a,_0x297eaa){const _0x2b3574=a1_0x185a,_0x332d12=_0x34f36a();while(!![]){try{const _0x3d38a7=-parseInt(_0x2b3574(0x10b))/0x1+-parseInt(_0x2b3574(0x105))/0x2*(-parseInt(_0x2b3574(0x107))/0x3)+parseInt(_0x2b3574(0x104))/0x4*(parseInt(_0x2b3574(0x111))/0x5)+parseInt(_0x2b3574(0x10e))/0x6+parseInt(_0x2b3574(0x102))/0x7+-parseInt(_0x2b3574(0x125))/0x8+-parseInt(_0x2b3574(0x124))/0x9;if(_0x3d38a7===_0x297eaa)break;else _0x332d12['push'](_0x332d12['shift']());}catch(_0x1c43e1){_0x332d12['push'](_0x332d12['shift']());}}}(a1_0x4f80,0x907e9));var __decorate=this&&this['__decorate']||function(_0x427007,_0x3a3072,_0x3fdb2f,_0x221787){const _0x52016f=a1_0x185a;var _0x2c7194=arguments[_0x52016f(0x11e)],_0x1b9621=_0x2c7194<0x3?_0x3a3072:_0x221787===null?_0x221787=Object[_0x52016f(0x118)](_0x3a3072,_0x3fdb2f):_0x221787,_0x2d053b;if(typeof Reflect===_0x52016f(0x113)&&typeof Reflect['decorate']==='function')_0x1b9621=Reflect[_0x52016f(0x10f)](_0x427007,_0x3a3072,_0x3fdb2f,_0x221787);else{for(var _0x18edf2=_0x427007[_0x52016f(0x11e)]-0x1;_0x18edf2>=0x0;_0x18edf2--)if(_0x2d053b=_0x427007[_0x18edf2])_0x1b9621=(_0x2c7194<0x3?_0x2d053b(_0x1b9621):_0x2c7194>0x3?_0x2d053b(_0x3a3072,_0x3fdb2f,_0x1b9621):_0x2d053b(_0x3a3072,_0x3fdb2f))||_0x1b9621;}return _0x2c7194>0x3&&_0x1b9621&&Object[_0x52016f(0x10d)](_0x3a3072,_0x3fdb2f,_0x1b9621),_0x1b9621;};function a1_0x4f80(){const _0x1f4703=['@nestjs/common','MongooseModule','4421865wNuLAf','./license/license.model','1689756DOikxf','1014802hPnzif','AppController','3VIVnks','mongodb://','AppModule','Module','110816wOJkBE','MONGO_INITDB_USERNAME','defineProperty','2885148vIhIwE','decorate','MONGO_INITDB_PASSWORD','5OtRjFK','./app.service','object','LicenseController','MONGO_INITDB_DATABASE','__esModule','MONGO_HOSTNAME','getOwnPropertyDescriptor','./license/license.service','forFeature','./license/license.controller','name','./app.controller','length','@nestjs/mongoose','forRoot','License','env','ConfigModule','6425073BsbEpZ','5006648lukArb'];a1_0x4f80=function(){return _0x1f4703;};return a1_0x4f80();}Object[a1_0x45efc0(0x10d)](exports,a1_0x45efc0(0x116),{'value':!![]}),exports[a1_0x45efc0(0x109)]=void 0x0;const common_1=require(a1_0x45efc0(0x126)),mongoose_1=require(a1_0x45efc0(0x11f)),app_controller_1=require(a1_0x45efc0(0x11d)),app_service_1=require(a1_0x45efc0(0x112)),license_service_1=require(a1_0x45efc0(0x119)),config_1=require('@nestjs/config'),license_model_1=require(a1_0x45efc0(0x103)),license_controller_1=require(a1_0x45efc0(0x11b));let AppModule=class AppModule{};AppModule=__decorate([(0x0,common_1[a1_0x45efc0(0x10a)])({'imports':[mongoose_1['MongooseModule']['forRootAsync']({'imports':[config_1['ConfigModule']],'useFactory':async _0x211ade=>{const _0x14f361=a1_0x45efc0;return{'uri':_0x14f361(0x108)+process[_0x14f361(0x122)][_0x14f361(0x10c)]+':'+process[_0x14f361(0x122)][_0x14f361(0x110)]+'@'+process['env'][_0x14f361(0x117)]+':'+process[_0x14f361(0x122)]['MONGO_PORT']+'/'+process['env'][_0x14f361(0x115)]};},'inject':[config_1['ConfigService']]}),mongoose_1[a1_0x45efc0(0x127)][a1_0x45efc0(0x11a)]([{'name':license_model_1[a1_0x45efc0(0x121)][a1_0x45efc0(0x11c)],'schema':license_model_1['LicenseSchema']}]),config_1[a1_0x45efc0(0x123)][a1_0x45efc0(0x120)]({'isGlobal':!![]})],'controllers':[app_controller_1[a1_0x45efc0(0x106)],license_controller_1[a1_0x45efc0(0x114)]],'providers':[app_service_1['AppService'],license_service_1['LicenseService']]})],AppModule),exports['AppModule']=AppModule;
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AppModule = void 0;
+const common_1 = require("@nestjs/common");
+const mongoose_1 = require("@nestjs/mongoose");
+const app_controller_1 = require("./app/app.controller");
+const app_service_1 = require("./app/app.service");
+const config_1 = require("@nestjs/config");
+const license_module_1 = require("./modules/license/license.module");
+const product_module_1 = require("./modules/product/product.module");
+let AppModule = class AppModule {
+};
+AppModule = __decorate([
+    (0, common_1.Module)({
+        imports: [
+            mongoose_1.MongooseModule.forRootAsync({
+                imports: [config_1.ConfigModule],
+                useFactory: async (configService) => {
+                    return {
+                        uri: `mongodb://${process.env.MONGO_INITDB_USERNAME}:${process.env.MONGO_INITDB_PASSWORD}@${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_INITDB_DATABASE}`,
+                    };
+                },
+                inject: [config_1.ConfigService],
+            }),
+            config_1.ConfigModule.forRoot({
+                isGlobal: true,
+            }),
+            license_module_1.LicenseModule,
+            product_module_1.ProductModule
+        ],
+        controllers: [app_controller_1.AppController],
+        providers: [app_service_1.AppService],
+    })
+], AppModule);
+exports.AppModule = AppModule;
+//# sourceMappingURL=app.module.js.map
