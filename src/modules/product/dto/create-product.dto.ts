@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { ProductCategoryEnum } from 'src/enum/product/product.category.enum';
 import { ProductStatusEnum } from 'src/enum/product/product.status.enum';
 
@@ -13,9 +13,9 @@ export class CreateProductDto {
   @IsNotEmpty()
   category: ProductCategoryEnum;
 
-  @IsNotEmpty()
+  @IsOptional()
   licenseId: string;
 
   @IsNotEmpty()
-  detailsTimePriceLicenseId: string;
+  detailsTimePriceLicenseId: string[];
 }

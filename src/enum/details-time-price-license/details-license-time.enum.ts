@@ -1,7 +1,8 @@
 export enum DetailsLicenseTimeEnum {
-  OneMonth = 'oneMonth',
-  ThreeMonth = 'threeMonth',
-  SixMonth = 'sixMonth',
-  NineMonth = 'nineMonth',
-  OneYear = 'oneYear',
+  TwentyDay ='20-d',
+  OneMonth = '1-m',
+  ThreeMonth = '3-m',
+  SixMonth = '6-m',
+  NineMonth = '9-m',
+  OneYear = '1-y',
 }

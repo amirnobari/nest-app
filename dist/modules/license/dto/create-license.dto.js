@@ -27,11 +27,6 @@ __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], CreateLicenseDto.prototype, "price", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], CreateLicenseDto.prototype, "periodtime", void 0);
+], CreateLicenseDto.prototype, "detailsTimePriceId", void 0);
 exports.CreateLicenseDto = CreateLicenseDto;
 //# sourceMappingURL=create-license.dto.js.map

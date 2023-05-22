@@ -26,20 +26,19 @@ let ProductService = class ProductService {
         this.licenseModel = licenseModel;
     }
     async createProduct(createProductDto) {
-        const license = await this.licenseModel.findOne({ _id: createProductDto.licenseId });
-        if (!license) {
-            throw new Error('licenseid is invalid');
-        }
-        const detailsTimePriceLicense = await this.detailsTimePriceLicenseModel.findOne({ _id: createProductDto.detailsTimePriceLicenseId });
-        if (!detailsTimePriceLicense) {
-            throw new Error('detailsTimePriceLicenseId is invalid');
+        let result = [];
+        for (const detailsTimePriceLicenseId of createProductDto.detailsTimePriceLicenseId) {
+            const detailsTimePriceLicense = await this.detailsTimePriceLicenseModel.findOne({ _id: detailsTimePriceLicenseId });
+            if (!detailsTimePriceLicense) {
+                throw new Error('detailsTimePriceLicenseId is invalid');
+            }
+            result.push(detailsTimePriceLicense);
         }
         const product = new this.productModel({
             name: createProductDto.name,
             status: createProductDto.status,
             category: createProductDto.category,
-            license,
-            detailsTimePriceLicense,
+            detailTimePrice: result,
         });
         return await product.save();
     }

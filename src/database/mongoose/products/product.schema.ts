@@ -1,7 +1,7 @@
 // import { Document, HydratedDocument, Schema, model } from 'mongoose';
 
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 import { ProductCategoryEnum } from 'src/enum/product/product.category.enum';
 import { ProductStatusEnum } from 'src/enum/product/product.status.enum';
 import { License } from '../license/license.schema';
@@ -23,7 +23,7 @@ export class Product {
   @Prop({ type: License })
   license: License;
 
-  @Prop({ type: DetailsTimePriceLicense })
-  detailTimePrice: DetailsTimePriceLicense;
+  @Prop({ type: [Types.ObjectId], ref: DetailsTimePriceLicense.name })
+  detailTimePrice: DetailsTimePriceLicense[];
 }
 export const ProductSchema = SchemaFactory.createForClass(Product);

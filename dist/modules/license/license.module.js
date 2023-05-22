@@ -12,12 +12,18 @@ const mongoose_1 = require("@nestjs/mongoose");
 const license_controller_1 = require("./license.controller");
 const license_service_1 = require("./license.service");
 const license_schema_1 = require("../../database/mongoose/license/license.schema");
+const details_time_price_license_schema_1 = require("../../database/mongoose/details-time-price-license.schema");
 let LicenseModule = class LicenseModule {
 };
 LicenseModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            mongoose_1.MongooseModule.forFeature([{ name: license_schema_1.License.name, schema: license_schema_1.LicenseSchema }]),
+            mongoose_1.MongooseModule.forFeature([{ name: license_schema_1.License.name, schema: license_schema_1.LicenseSchema },
+                {
+                    name: details_time_price_license_schema_1.DetailsTimePriceLicense.name,
+                    schema: details_time_price_license_schema_1.DetailsTimePriceLicenseSchema,
+                },
+            ]),
         ],
         controllers: [license_controller_1.LicenseController],
         providers: [license_service_1.LicenseService],

@@ -12,6 +12,7 @@ import {
 import { CreateDetalisTimePriceLicenseDto } from './dto/create-detalis-time-price-license.dto'
 import { CreateProductDto } from './dto/create-product.dto'
 import { License, LicenseDocument } from 'src/database/mongoose/license/license.schema'
+import { log } from 'console'
 
 @Injectable()
 export class ProductService {
@@ -25,23 +26,25 @@ export class ProductService {
   ) { }
 
   async createProduct(createProductDto: CreateProductDto) {
-    const license = await this.licenseModel.findOne({ _id: createProductDto.licenseId })
-    if (!license) {
-      throw new Error('licenseid is invalid')
-    }
+    let result = []
 
-    const detailsTimePriceLicense = await this.detailsTimePriceLicenseModel.findOne({ _id: createProductDto.detailsTimePriceLicenseId })
-    if (!detailsTimePriceLicense) {
-      throw new Error('detailsTimePriceLicenseId is invalid')
-    }
+    for (const detailsTimePriceLicenseId of createProductDto.detailsTimePriceLicenseId) {
+      const detailsTimePriceLicense = await this.detailsTimePriceLicenseModel.findOne({ _id: detailsTimePriceLicenseId })
 
+      if (!detailsTimePriceLicense) {
+        throw new Error('detailsTimePriceLicenseId is invalid')
+      }
+      
+      result.push(detailsTimePriceLicense)
+
+    }
     //create to database
     const product = new this.productModel({
       name: createProductDto.name,
       status: createProductDto.status,
       category: createProductDto.category,
-      license,
-      detailsTimePriceLicense,
+      detailTimePrice: result,
+
     })
 
     return await product.save()

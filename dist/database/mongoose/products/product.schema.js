@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductSchema = exports.Product = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
+const mongoose_2 = require("mongoose");
 const product_category_enum_1 = require("../../../enum/product/product.category.enum");
 const product_status_enum_1 = require("../../../enum/product/product.status.enum");
 const license_schema_1 = require("../license/license.schema");
@@ -34,8 +35,8 @@ __decorate([
     __metadata("design:type", license_schema_1.License)
 ], Product.prototype, "license", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: details_time_price_license_schema_1.DetailsTimePriceLicense }),
-    __metadata("design:type", details_time_price_license_schema_1.DetailsTimePriceLicense)
+    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: details_time_price_license_schema_1.DetailsTimePriceLicense.name }),
+    __metadata("design:type", Array)
 ], Product.prototype, "detailTimePrice", void 0);
 Product = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })

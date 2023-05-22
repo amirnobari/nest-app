@@ -17,26 +17,45 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const license_schema_1 = require("../../database/mongoose/license/license.schema");
-const license_enum_1 = require("./enum/license.enum");
+const license_status_enum_1 = require("../../enum/license/license-status.enum");
+const details_time_price_license_schema_1 = require("../../database/mongoose/details-time-price-license.schema");
 let LicenseService = class LicenseService {
-    constructor(licenseModel) {
+    constructor(licenseModel, detailsTimePriceLicenseModel) {
         this.licenseModel = licenseModel;
+        this.detailsTimePriceLicenseModel = detailsTimePriceLicenseModel;
     }
     async getLicenses() {
         return this.licenseModel.find().exec();
     }
-    async createLicense(licenseData) {
-        const { userId, productId, price, periodtime } = licenseData;
+    async createLicense(createLicenseDto) {
+        const { userId, productId, detailsTimePriceId } = createLicenseDto;
         const lastFourUserId = userId.slice(-4).toUpperCase();
         const lastFourProductId = productId.slice(-4).toUpperCase();
         const licenseKey = lastFourUserId + '-' + lastFourProductId + '-' + 'XXXX' + '-' + 'XXXX';
+        const detailsTimePriceLicense = await this.detailsTimePriceLicenseModel.findOne({ _id: detailsTimePriceId });
+        let time = detailsTimePriceLicense.time;
+        let timeArr = time.split('-');
+        let number = Number(timeArr[0]);
+        let type = timeArr[1];
+        if (type == 'd') {
+            number = number;
+        }
+        if (type == 'm') {
+            number = number * 30;
+        }
+        if (type == 'y') {
+            number = number * 365;
+        }
+        let startetAt = new Date(Date.now());
+        let nowDate = new Date(Date.now());
+        let expiredAt = new Date(nowDate.setDate(nowDate.getDate() + number));
         const createdLicense = new this.licenseModel({
             userId,
-            productId,
-            price,
-            periodtime,
-            status: license_enum_1.LicenseStatusEnum.Pending,
             licenseKey,
+            startetAt,
+            expiredAt,
+            detailsTimePriceLicense,
+            status: license_status_enum_1.LicenseStatusEnum.Enable,
         });
         return createdLicense.save();
     }
@@ -44,7 +63,9 @@ let LicenseService = class LicenseService {
 LicenseService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)(license_schema_1.License.name)),
-    __metadata("design:paramtypes", [mongoose_2.Model])
+    __param(1, (0, mongoose_1.InjectModel)(details_time_price_license_schema_1.DetailsTimePriceLicense.name)),
+    __metadata("design:paramtypes", [mongoose_2.Model,
+        mongoose_2.Model])
 ], LicenseService);
 exports.LicenseService = LicenseService;
 //# sourceMappingURL=license.service.js.map
